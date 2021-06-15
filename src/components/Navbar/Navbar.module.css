@@ -1,0 +1,9 @@
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li:not(:last-child) {
+    margin-bottom: 10px;
+}

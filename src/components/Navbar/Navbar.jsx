@@ -1,8 +1,10 @@
+import s from './Navbar.module.css'
+
 const Navbar = () => {
     return (
         <aside className="sidebar box">
             <nav>
-                <ul className="menu">
+                <ul className={s.menu}>
                     <li><a href="#l">Profile</a></li>
                     <li><a href="#l">Messages</a></li>
                     <li><a href="#l">News</a></li>

@@ -27,6 +27,7 @@ a:hover {
     grid-template-columns: 20% 80%;
     padding: 30px 0;
     grid-gap: 40px;
+    align-items: flex-start;
 }
 
 .box {

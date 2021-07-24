@@ -37,3 +37,11 @@ a:hover {
     box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%);
 }
 
+.box:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.dialogsWrapper {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+}

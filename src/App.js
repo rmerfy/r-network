@@ -8,12 +8,7 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Setting/Settings';
 
-
-
-
-
-
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="wrapper">
@@ -22,19 +17,19 @@ const App = () => {
           <Navbar />
           <main className="main">
             <Switch>
+              <Route exact path="/">
+                <Profile profilePage={props.state.profilePage} addPost={props.addPost} updatePostValue={props.updatePostValue}/>
+              </Route>
               <Route path="/dialogs">
-                <Dialogs />
+                <Dialogs dialogsPage={props.state.dialogsPage} addMessage={props.addMessage} updateDialogsValue={props.updateDialogsValue} />
               </Route>
-              <Route path="/profile">
-                <Profile />
-              </Route>
-              <Route path="/news">
+              <Route exact path="/news">
                 <News />
               </Route>
-              <Route path="/music">
+              <Route exact path="/music">
                 <Music />
               </Route>
-              <Route path="/settings">
+              <Route exact path="/settings">
                 <Settings />
               </Route>
             </Switch>

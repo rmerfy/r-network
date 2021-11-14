@@ -1,4 +1,9 @@
 
+import profileReducer from './reducers/profile-reducer';
+import dialogsReducer from './reducers/dialogs-reducer';
+
+
+
 let store = {
     _state: {
         profilePage: {
@@ -12,9 +17,24 @@ let store = {
         },
         dialogsPage: {
             dialogs: [
-                { name: 'name1', id: 1},
-                { name: 'name2', id: 2},
-                { name: 'name3', id: 3}
+                {
+                    name: 'name1',
+                    id: 1,
+
+                },
+                {
+                    name: 'name2',
+                    id: 2,
+
+                },
+                {
+                    name: 'name3',
+                    id: 3,
+
+                }
+            ],
+            messages: [
+                'test3'
             ],
             dialogsCurrentValue: 'sts'
         }
@@ -23,10 +43,10 @@ let store = {
         console.log('state changed');
     },
 
-    getState(){
+    getState() {
         return this._state;
     },
-    
+
     subscribe(observer) {
         this._subscriber = observer;
     },
@@ -40,30 +60,22 @@ let store = {
         this._subscriber(this._state)
     },
 
-    addMessage(text) {
-        if (!this._state.dialogsPage.dialogsCurrentValue) {
-            alert("Пустое значение")
-        } else {
-            this._state.dialogsPage.dialogs.push({
-                name: this._state.dialogsPage.dialogsCurrentValue,
-                id: 0
-            })
-            this._state.dialogsPage.dialogsCurrentValue = ""
-            this._subscriber(this._state)
-        }
-    },
-
     updatePostValue(newPostValue) {
         this._state.profilePage.newPostValue = newPostValue;
         this._subscriber(this._state)
     },
 
-    updateDialogsValue(DialogsValue) {
-        this._state.dialogsPage.dialogsCurrentValue = DialogsValue;
-        this._subscriber(this._state)
+    dispatch(action) {
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+
+        this._subscriber(this._state);
+
     }
 }
 
-window.store = store;
+
 
 export default store;
+
+window.store = store;

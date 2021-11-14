@@ -7,7 +7,7 @@ body {
 a {
     color: #363636;
     text-decoration: none;
-    transition: all .15s ease-in-out;
+    transition: all 0.15s ease-in-out;
 }
 
 a:hover {
@@ -20,7 +20,6 @@ a:hover {
     margin: 0 auto;
     padding: 0 15px;
 }
-
 
 .content {
     display: grid;
@@ -44,4 +43,17 @@ a:hover {
 .dialogsWrapper {
     display: grid;
     grid-template-columns: 3fr 7fr;
+}
+
+button {
+    display: block;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 6px 22px;
+    transition: all 0.3s;
+    background: #3d70b2;
+    border-color: #3d70b2;
+    border-radius: 4px;
+    color: #fff;
 }

@@ -1,25 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import store from './redux/state';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import store from "./redux/redux-store";
+import { Provider } from "react-redux";
 
 export const rerenderIntireTree = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <App
-      state={store.getState()}
-      addPost={store.addPost.bind(store)}
-      updatePostValue={store.updatePostValue.bind(store)}
-      addMessage={store.addMessage.bind(store)}
-      updateDialogsValue={store.updateDialogsValue.bind(store)}
-      />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </React.StrictMode>,
-    document.getElementById('root')
+    document.getElementById("root")
   );
-}
-
+};
 
 rerenderIntireTree(store.getState());
 
-store.subscribe(rerenderIntireTree);
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderIntireTree(state);
+});

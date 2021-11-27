@@ -1,16 +1,16 @@
 import { NavLink } from 'react-router-dom';
-import s from './Navbar.module.css'
 
 const Navbar = () => {
     return (
-        <aside className="sidebar box">
+        <aside className="bg-white w-full max-w-xs self-start p-4 rounded-xl shadow-lg">
             <nav>
-                <ul className={s.menu}>
-                    <li><NavLink to="/" activeClassName={s.activeLink}>Profile</NavLink></li>
-                    <li><NavLink to="/dialogs" activeClassName={s.activeLink}>Messages</NavLink></li>
-                    <li><NavLink to="/news" activeClassName={s.activeLink}>News</NavLink></li>
-                    <li><NavLink to="/music" activeClassName={s.activeLink}>Music</NavLink></li>
-                    <li><NavLink to="/settings" activeClassName={s.activeLink}>Settings</NavLink></li>
+                <ul>
+                    <li><NavLink exact to="/" activeClassName="text-blue-500">Profile</NavLink></li>
+                    <li><NavLink to="/users" activeClassName="text-blue-500">Users</NavLink></li>
+                    <li><NavLink to="/dialogs" activeClassName="text-blue-500">Messages</NavLink></li>
+                    <li><NavLink to="/news" activeClassName="text-blue-500">News</NavLink></li>
+                    <li><NavLink to="/music" activeClassName="text-blue-500">Music</NavLink></li>
+                    <li><NavLink to="/settings" activeClassName="text-blue-500">Settings</NavLink></li>
                 </ul>
             </nav>
         </aside>

@@ -1,5 +1,4 @@
 import React from "react";
-import s from "./Dialogs.module.css";
 import DialogItem from "./DialogsItem/DialogItem";
 import Messages from "./Messages/Messages";
 import {
@@ -11,11 +10,11 @@ const Dialogs = (props) => {
   let newDialogElement = React.createRef();
 
   let dialogsMap = props.dialogs.map((dialog) => {
-    return <DialogItem name={dialog.name} id={dialog.id} />;
+    return <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />;
   });
 
   let messageMap = props.messages.map((message) => {
-    return <Messages message={message} />;
+    return <Messages message={message.name} key={message.id} />;
   });
 
   let addMessage = () => {
@@ -28,14 +27,14 @@ const Dialogs = (props) => {
   };
 
   return (
-    <div className="box dialogsWrapper">
-      <div className={s.dialogs}>
+    <div>
+      <div>
         <ul>{dialogsMap}</ul>
       </div>
 
-      <div className={s.messages}>
+      <div>
         {messageMap}
-        <div className="addNew">
+        <div>
           <textarea
             ref={newDialogElement}
             onChange={onChangeMessage}

@@ -7,15 +7,16 @@ import Music from './components/Music/Music';
 import Settings from './components/Setting/Settings';
 import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import Users from './components/Users/Users';
 
 const App = (props) => {
   return (
     <BrowserRouter>
       <div className="wrapper">
         <Header />
-        <div className="container content">
+        <div className="container py-10 flex justify-between gap-5">
           <Navbar />
-          <main className="main">
+          <main className="main w-full">
             <Switch>
               <Route exact path="/">
                 <Profile />
@@ -25,6 +26,9 @@ const App = (props) => {
               </Route>
               <Route exact path="/news">
                 <News />
+              </Route>
+              <Route exact path="/users">
+                <Users />
               </Route>
               <Route exact path="/music">
                 <Music />

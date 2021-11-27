@@ -1,11 +1,9 @@
-import s from './Header.module.css'
 
 const Header = () => {
     return (
-        <header className={s.header}>
+        <header className="py-4 bg-white shadow-lg">
             <div className="container">
-                <h1 className={s.logo}>R Network</h1>
-                <p className="mt-7 bg-black">test</p>
+                <h1 className="text-2xl">R Network</h1>
             </div>
         </header>
     )

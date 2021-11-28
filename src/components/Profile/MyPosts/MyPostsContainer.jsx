@@ -6,34 +6,6 @@ import {
 } from "../../../redux/reducers/profile-reducer";
 import MyPosts from "./MyPosts";
 
-// const MyPostsContainer = () => {
-//   return (
-//     <StoreContext.Consumer>
-//       {(store) => {
-//         let state = store.getState();
-
-//         let newPost = () => {
-//           let action = addPostAction();
-//           store.dispatch(action);
-//         };
-
-//         let onChangeValue = (text) => {
-//           let action = updatePostAction(text);
-//           store.dispatch(action);
-//         };
-
-//         return (
-//           <MyPosts
-//             updateNewPostText={onChangeValue}
-//             newPost={newPost}
-//             post={state.profilePage.posts}
-//             newPostValue={state.profilePage.newPostValue}
-//           />
-//         );
-//       }}
-//     </StoreContext.Consumer>
-//   );
-// };
 
 let mapStateToProps = (state) => {
   return {

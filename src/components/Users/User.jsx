@@ -1,11 +1,12 @@
 import React from "react";
+import UserImg from "../../assets/images/user-img.png";
 
 const User = (props) => {
   return (
-    <div className="shadow-lg rounded-2xl w-80 p-4 bg-white dark:bg-gray-800">
+    <div className="shadow-lg rounded-2xl w-96 p-4 bg-white dark:bg-gray-800">
       <div className="flex flex-row items-start gap-4">
         <img
-          src={props.avatarUrl}
+          src={props.avatarUrl !== undefined ? props.avatarUrl : UserImg  }
           className="w-28 h-28 rounded-lg"
           alt={props.name}
         />
@@ -19,9 +20,9 @@ const User = (props) => {
           <div className="rounded-lg bg-blue-100 dark:bg-white p-2 w-full">
             <div className="flex items-center justify-between text-xs text-gray-400 dark:text-black">
               <p className="flex flex-col">
-                {props.location.city}
+                {/* {props.location.city} */}
                 <span className="text-black dark:text-indigo-500 font-bold">
-                  {props.location.country}
+                  {/* {props.location.country} */}
                 </span>
               </p>
             </div>

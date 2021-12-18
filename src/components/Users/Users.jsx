@@ -1,26 +1,12 @@
 import React from "react";
 import User from "./User";
-import * as axios from "axios";
-import { log } from "@craco/craco/lib/logger";
 
-class Users extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  componentDidMount() {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/users?page=1&count=3")
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-      });
-  }
-
-  render() {
-    return (
-      <div>
+const Users = (props) => {
+  return (
+    <div>
         <h1 className="text-2xl font-bold mb-5">Пользователи</h1>
-        <div className="flex flex-wrap gap-5">
-          {this.props.users.map((m) => {
+        <div className="flex flex-wrap gap-5 mb-8">
+          {props.users.map((m) => {
             return (
               <User
                 key={m.id}
@@ -30,48 +16,43 @@ class Users extends React.Component {
                 followed={m.followed}
                 status={m.status}
                 location={m.location}
-                follow={this.props.follow}
-                unfollow={this.props.unfollow}
+                follow={props.follow}
+                unfollow={props.unfollow}
               />
             );
           })}
         </div>
+        {/* pagination */}
+        <div>
+          <nav
+            className="relative z-0 flex justify-center rounded-md -space-x-px"
+            aria-label="Pagination"
+          >
+            <button
+              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+              onClick={() => {props.onPageChanged(props.currentPage - 1)}}
+            >
+              Prev
+            </button>
+            {props.pages.map((p) => {
+              return <button
+              className={props.currentPage === p ? 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium' : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium'}
+              onClick={() => {props.onPageChanged(p)}}
+            >
+              {p}
+            </button>
+            })}
+            <button
+              className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+              onClick={() => {props.onPageChanged(props.currentPage + 1)}}
+            >
+              Next
+            </button>
+          </nav>
+        </div>
+        {/* pagination */}
       </div>
-    );
-  }
+  )
 }
-
-// const Users = (props) => {
-//   if (props.users.length === 0) {
-//     axios
-//       .get("https://social-network.samuraijs.com/api/1.0/users/6")
-//       .then((response) => {
-//         props.setUsers(response.data.items);
-//       });
-//   }
-
-//   const UsersMap = props.users.map((m) => {
-//     return (
-//       <User
-//         key={m.id}
-//         id={m.id}
-//         avatarUrl={m.photo}
-//         name={m.name}
-//         followed={m.followed}
-//         status={m.status}
-//         location={m.location}
-//         follow={props.follow}
-//         unfollow={props.unfollow}
-//       />
-//     );
-//   });
-
-//   return (
-//     <div>
-//       <h1 className="text-2xl font-bold mb-5">Пользователи</h1>
-//       <div className="flex flex-wrap gap-5">{UsersMap}</div>
-//     </div>
-//   );
-// };
 
 export default Users;

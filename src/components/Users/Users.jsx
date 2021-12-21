@@ -4,7 +4,6 @@ import User from "./User";
 const Users = (props) => {
   return (
     <div>
-        <h1 className="text-2xl font-bold mb-5">Пользователи</h1>
         <div className="flex flex-wrap gap-5 mb-8">
           {props.users.map((m) => {
             return (

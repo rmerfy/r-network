@@ -1,15 +1,18 @@
 import React from "react";
 import UserImg from "../../assets/images/user-img.png";
+import { NavLink } from 'react-router-dom';
 
 const User = (props) => {
   return (
     <div className="shadow-lg rounded-2xl w-96 p-4 bg-white dark:bg-gray-800">
       <div className="flex flex-row items-start gap-4">
+        <NavLink className="w-28 h-28" to={'/profile'}>
         <img
           src={props.avatarUrl !== undefined ? props.avatarUrl : UserImg  }
-          className="w-28 h-28 rounded-lg"
+          className="rounded-lg"
           alt={props.name}
         />
+        </NavLink>
         <div className="h-28 w-full flex flex-col justify-between">
           <div>
             <p className="text-gray-800 dark:text-white text-xl font-medium">

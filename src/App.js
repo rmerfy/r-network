@@ -18,7 +18,7 @@ const App = (props) => {
           <Navbar />
           <main className="main w-full">
             <Switch>
-              <Route exact path="/">
+              <Route path="/profile">
                 <Profile />
               </Route>
               <Route path="/dialogs">

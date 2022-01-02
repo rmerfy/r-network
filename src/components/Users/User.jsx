@@ -6,7 +6,7 @@ const User = (props) => {
   return (
     <div className="shadow-lg rounded-2xl w-96 p-4 bg-white dark:bg-gray-800">
       <div className="flex flex-row items-start gap-4">
-        <NavLink className="w-28 h-28" to={'/profile'}>
+        <NavLink className="w-28 h-28" to={'/profile/' + props.id}>
         <img
           src={props.avatarUrl !== undefined ? props.avatarUrl : UserImg  }
           className="rounded-lg"
